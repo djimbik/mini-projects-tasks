@@ -1,37 +1,23 @@
 
+const TaskModel = function (initialTasks = []) {
+    this._tasks = [...initialTasks];
+};
 
-export const createModel = () => {
-    let tasks = [
-        {
-          id: Date.now(),
-          title: 'Вынести мусор',
-          isDone: false,
-        },
-        {
-          id: Date.now() + 1,
-          title: 'Защитить интенсив на соточку',
-          isDone: true,
-        },
-    ]; 
+TaskModel.prototype.add = function (title) {
+    this._tasks.push({
+      id: Date.now(),
+      title,
+      isDone: false,
+    });
+};
 
-    const add = (title) => {
-        tasks.push({
-            id: Date.now(),
-            title,
-            isDone: false,
-        })
-    }
+TaskModel.prototype.complete = function (id) {
+    const existTask = this._tasks.find((task) => task.id == id);
+    existTask.isDone = !existTask.isDone;
+};
 
-    const complete = (id) => {
-        const existTask = tasks.find((task) => task.id === id);
-        existTask.isDone = !existTask.isDone;
-    }
+TaskModel.prototype.getItems = function () {
+    return this._tasks;
+};
 
-    const getItems = () => tasks;
-
-    return {
-        add,
-        complete,
-        getItems
-    }
-}
+export default TaskModel;

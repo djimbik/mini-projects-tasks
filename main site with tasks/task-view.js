@@ -4,48 +4,36 @@ const createElement = (template) => {
     return newElement.firstElementChild;
   };
   
-  export const createView = () => {
-    let element = null;
-    let callback = {};
+const TaskView = function (task) {
+  this._element = null;
+  this._callback = {};
+  this._task = task;
+}
   
-    const getTemplate = ({id, title, isDone}) => {
+TaskView.prototype.getTemplate = function() {
+    const {id, title, isDone} = this._task
       return `
         <li class="task ${isDone ? 'task--complete' : ''}">
           <label for="${id}">${title}
             <input id="${id}" type="checkbox" ${isDone ? 'checked' : ''} />
           </label>
         </li>`;
-    };
+};
   
-    const removeElement = () => {
-      const taskElement = getElement();
+TaskView.prototype.getElement = function() {
+  if (!this._element) {
+    this._element = createElement(this.getTemplate());
+  }
+
+  return this._element;
+};
   
-      taskElement.querySelector('input')
-        .removeEventListener('click', callback.completeButtonClick);
-  
-      element = null;
-      callback = {};
-    };
-  
-    const getElement = (task) => {
-      if (!element) {
-        element = createElement(getTemplate(task));
-      }
-  
-      return element;
-    };
-  
-    const bindListeners = (completeButtonHandler) => {
-      const taskElement = getElement();
+TaskView.prototype.bindListeners = function(completeButtonHandler) {
+      const taskElement = this.getElement();
       taskElement.querySelector('input')
         .addEventListener('click', completeButtonHandler);
   
-      callback.completeButtonClick = completeButtonHandler;
-    };
-  
-    return {
-      removeElement,
-      bindListeners,
-      getElement,
-    };
-  };
+      this._callback.completeButtonClick = completeButtonHandler;
+};
+
+export default TaskView
