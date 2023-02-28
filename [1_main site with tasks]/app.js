@@ -53,34 +53,14 @@ const taskModel = new TaskModel([
         isDone: false,
     },
     {
-        id: Date.now() + 8,
-        title: `Date: Задание #1, Повторов: 0`,
-        isDone: false,
-    },
-    {
-        id: Date.now() + 9,
-        title: `Date: Задание #2, Повторов: 0`,
-        isDone: false,
-    },
-    {
-        id: Date.now() + 10,
-        title: `Date: Задание #3, Повторов: 0`,
-        isDone: false,
-    },
-    {
-        id: Date.now() + 11,
-        title: `Date: Задание #4, Повторов: 0`,
-        isDone: false,
-    },
-    {
         id: Date.now() + 12,
         title: `Date: Задание #1, Повторов: 0`,
         isDone: false,
     },
     {
         id: Date.now() + 13,
-        title: `Date: Задание #2, Повторов: 0`,
-        isDone: false,
+        title: `Date: Задание #2, Повторов: 1`,
+        isDone: true,
     },
     {
         id: Date.now() + 14,
@@ -114,8 +94,8 @@ const taskModel = new TaskModel([
     },
     {
         id: Date.now() + 20,
-        title: `Classes and OOP: Задание #5, Повторов: 0`,
-        isDone: false,
+        title: `Classes and OOP: Задание #5, Повторов: 1`,
+        isDone: true,
     },
     {
         id: Date.now() + 21,

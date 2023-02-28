@@ -102,3 +102,84 @@ const enemy = {
 }
 startGame(hero, enemy);
     
+
+// ==================================================================================================================================================
+//#3 Date: Задание #2, Повторов: 0
+
+const getDaysBeforeBirthday = (nextBirthdayDate) => {
+    const nextBirthDay = nextBirthdayDate.getTime();
+    const today = Date.now();
+    const daysToBirthdayParty = nextBirthDay - today
+    const convertMsToDays = (ms) => {
+      return  Math.round(ms / 1000 / 60 / 60 / 24) 
+    }
+    return convertMsToDays(daysToBirthdayParty)
+}
+
+getDaysBeforeBirthday(new Date(2024, 08, 24))
+
+
+
+// ==================================================================================================================================================
+//#4 Classes and OOP: Задание #5, Повторов: 0
+
+class Developer {
+    constructor(fullName, age, position) {
+        this.fullName = fullName;
+        this.age = age;
+        this.position = position;
+
+        this.technologies = [];
+    }
+
+    code() {}
+
+    learnNewTechnology(technology) {
+        this.technologies.push(technology)
+    }
+}
+
+class JuniorDeveloper extends Developer {
+    constructor(fullName, age, position = 'Junior') {
+        super(fullName, age, position);
+        this.technologies = ['HTML', 'CSS', 'JavaScript'];
+    }
+
+    code() {
+        console.log(`${this.position} разработчик пишет код...`)
+    }
+}
+
+class MiddleDeveloper extends Developer {
+    constructor(fullName, age, position = 'Middle') {
+        super(fullName, age, position);
+        this.technologies = ['HTML', 'CSS', 'JavaScript', 'React'];
+    }
+    code() {
+        console.log(`${this.position} разработчик пишет код...`)
+    }
+}
+
+class SeniorDeveloper extends Developer {
+    constructor(fullName, age, position = 'Senior') {
+        super(fullName, age, position);
+        this.technologies = ['HTML', 'CSS', 'JavaScript', 'React', 'NodeJS'];
+    }
+
+    code() {
+        console.log(`${this.position} разработчик пишет код...`)
+    }
+}
+
+const juniorDeveloper = new JuniorDeveloper('Анастасия', 20)
+const middleDeveloper = new MiddleDeveloper('Игорь', 25)
+const seniorDeveloper = new SeniorDeveloper('Максим', 30)
+juniorDeveloper.code(); // Junior разработчик пишет код...
+middleDeveloper.code(); // Middle разработчик пишет код…
+seniorDeveloper.code(); // Senior разработчик пишет код...
+console.log(juniorDeveloper.fullName, juniorDeveloper.age,
+juniorDeveloper.position); // 'Анастасия', 20, 'Junior'
+console.log(middleDeveloper.fullName, middleDeveloper.age,
+middleDeveloper.position); // 'Игорь', 25, 'Middle'
+console.log(seniorDeveloper.fullName, seniorDeveloper.age,
+seniorDeveloper.position); // 'Максим', 30, 'Senior'
