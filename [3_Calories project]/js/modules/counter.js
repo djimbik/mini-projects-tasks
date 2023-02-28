@@ -1,4 +1,5 @@
-
+import {formatInput} from '../utils/format-input.js';
+import Result from './result.js';
 
 const PhysicalActivityRatio = {
     MIN: 1.2,
@@ -24,7 +25,7 @@ const CaloriesMinMaxRatio = {
     MAX: 1.15
 };
 
-class Counter {
+export default class Counter {
     constructor(element) {
         this.root = element;
         this.form = this.root.querySelector('.counter__form')
@@ -38,7 +39,66 @@ class Counter {
         this.height = this.elements.height;
         this.activity = this.elements.activity;
 
+        this.result = new Result(this.root);
+
+        this.parametersItems = Array.from(this.parameters); // создаем массив из инпутов
     }
 
+    _onFormInput() {
+        this.submit.disabled = !this.form.checkValidity(); //форма заблочена, пока не заполнить
+        this.reset.disabled = !this.parametersItems.some((el) => el.value);
+        // кнопка сброса откроется, если хотябы 1 инпут заполнен
+
+        this.age.value = formatInput(this.age);
+        this.height.value = formatInput(this.height);
+        this.weight.value = formatInput(this.weight);
+    }
+
+    _onFormReset() {
+        this.reset.disabled = true;
+        this.submit.disabled = true;
+        this.result.hide();
+    }
+
+    _onFormSubmit(evt) {
+        evt.preventDefault();
     
+        const caloriesData = {
+          norm: this.getCaloriesNorm(),
+          min: this.getCaloriesMin(),
+          max: this.getCaloriesMax()
+        };
+    
+        this.result.show(caloriesData);
+      }
+
+    init() {
+        this.form.addEventListener(`input`, this._onFormInput.bind(this));
+        this.form.addEventListener(`reset`, this._onFormReset.bind(this));
+        this.form.addEventListener(`submit`, this._onFormSubmit.bind(this));
+    }
+
+    deinit() {
+        this.form.removeEventListener(`input`, this._onFormInput.bind(this), true);
+        this.form.removeEventListener(`reset`, this._onFormReset.bind(this));
+        this.form.removeEventListener(`submit`, this._onFormSubmit.bind(this));
+    }
+
+    getCaloriesNorm() {
+    const age = CaloriesFormulaFactor.AGE * this.age.value;
+    const weight = CaloriesFormulaFactor.WEIGHT * this.weight.value;
+    const height = CaloriesFormulaFactor.HEIGHT * this.height.value;
+    const gender = CaloriesFormulaConstant[this.gender.value.toUpperCase()];
+    const activity = PhysicalActivityRatio[this.activity.value.toUpperCase()];
+
+    return Math.round((weight + height - age + gender) * activity);
+  }
+
+  getCaloriesMin() {
+    return Math.round(this.getCaloriesNorm() * CaloriesMinMaxRatio.MIN);
+  }
+
+  getCaloriesMax() {
+    return Math.round(this.getCaloriesNorm() * CaloriesMinMaxRatio.MAX);
+  }
 }
