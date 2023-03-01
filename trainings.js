@@ -183,3 +183,36 @@ console.log(middleDeveloper.fullName, middleDeveloper.age,
 middleDeveloper.position); // 'Игорь', 25, 'Middle'
 console.log(seniorDeveloper.fullName, seniorDeveloper.age,
 seniorDeveloper.position); // 'Максим', 30, 'Senior'
+
+
+
+
+// ==================================================================================================================================================
+//#5 Classes and OOP: Задание #2, Повторов: 0
+
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    compareAge(isperson) {
+        if(this.age >= isperson.age) {
+            console.log(`${this.name} старше, чем ${isperson.name}`)
+        } else {
+            console.log(`${this.name} младше, чем ${isperson.name}`)
+        }
+    }
+}
+
+const person1 = new Person('Максим', 24);
+const person2 = new Person('Светлана', 36);
+const person3 = new Person('Ирина', 23);
+person1.compareAge(person2); // Максим младше, чем Светлана
+person2.compareAge(person3); // Светлана старше, чем Ирина
+person3.compareAge(person1); // Ирина младше, чем Максим
+
+
+
+// ==================================================================================================================================================
+// 6 заданий по DOM
