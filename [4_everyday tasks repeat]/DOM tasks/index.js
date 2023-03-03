@@ -199,12 +199,22 @@ let targetTaskIdToDelete = null;
 const {
     cancelButton, confirmButton, modalOverlay
 } = createDeleteModal('Вы действительно хотите удалить эту задачу?');
-document.body.prepend(modalOverlay); // остановился на этом моменте
+document.body.prepend(modalOverlay); 
+
+cancelButton.addEventListener('click', () => {
+    modalOverlay.classList.add('modal-overlay_hidden');
+});
+
+confirmButton.addEventListener('click', () => {
+    modalOverlay.classList.add('modal-overlay_hidden');
+    const taskToDeleteIndex = tasks.findIndex(task => task.id === targetTaskIdToDelete);
+    tasks.splice(taskToDeleteIndex, 1);
+    const taskItemHTML = document.querySelector(`[data-task-id="${targetTaskIdToDelete}"]`);
+    taskItemHTML.remove()
+
+})
 
 const tasksList = document.querySelector('.tasks-list');
-
-
-
 tasksList.addEventListener('click', (event) => {
    const { target } = event;
    const deleteButton = target.closest('.task-item__delete-button');
@@ -218,3 +228,37 @@ tasksList.addEventListener('click', (event) => {
         }
    }
 })
+
+
+let isBlack = false;
+const taskItems = document.querySelectorAll('.task-item');
+const buttons = document.querySelectorAll('button');
+const body = document.querySelector('body');
+
+const changeThemeToBlack = () => {
+   body.style.background = '#24292E';
+   taskItems.forEach(task => task.style.color = '#ffffff');
+   buttons.forEach(button => button.style.border = '1px solid #ffffff')
+
+}
+
+const changeThemeToStandart = () => {
+    body.style.background = "initial";
+    taskItems.forEach(task => task.style.color = 'initial');
+    buttons.forEach(button => button.style.border = 'none')
+}
+
+window.addEventListener('keydown', (event) => {   
+    const { key } = event;
+
+    if(key === 'Tab') {
+        event.preventDefault();
+        isBlack = !isBlack
+        if(isBlack) {
+            changeThemeToBlack()    
+        } else {
+            changeThemeToStandart()
+        }
+    }
+})
+
