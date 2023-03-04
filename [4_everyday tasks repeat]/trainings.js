@@ -214,3 +214,58 @@ person3.compareAge(person1); // Ирина младше, чем Максим
 
 
 
+
+// ==================================================================================================================================================
+//#6 Objects: Задание #3, Повторов: 0
+const handleObject = (obj, key, action) => {
+    switch (action) {
+        case "get":
+            return obj[key];
+        case "add":
+             obj[key] = '';
+             return obj;
+        case "delete":
+            delete obj[key];
+            return obj;
+        default:
+            return obj
+    }
+}
+
+const student = {
+    name: 'Maxim',
+    programmingLanguage: 'JavaScript',
+}
+const result = handleObject(student, 'programmingLanguage',
+'get');
+console.log('result', result);
+    
+
+
+// ==================================================================================================================================================
+//#7 Classes and OOP: Задание #1, Повторов: 0
+
+class Student {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+        this.technologies = [];
+        this.status = 'Junior';
+    }
+
+    setTechnologies(technologies) {
+        this.technologies = [
+            ...this.technologies,
+            ...technologies
+        ]
+    }
+
+    setNewStatus(newStatus) {
+        this.status = newStatus;
+    }
+}
+
+const student1 = new Student ('Maxim', 20);
+student1.setTechnologies([ 'HTML', 'CSS', 'JavaScript' ]);
+student1.setNewStatus('Middle');
+console.log(student1);
