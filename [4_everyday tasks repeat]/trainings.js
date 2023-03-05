@@ -269,3 +269,77 @@ const student1 = new Student ('Maxim', 20);
 student1.setTechnologies([ 'HTML', 'CSS', 'JavaScript' ]);
 student1.setNewStatus('Middle');
 console.log(student1);
+
+
+
+
+
+// ==================================================================================================================================================
+//#7 Асинхронность (Async Await): Задание #1, Повторов: 0
+//Требуется переписать данный код, который использует then, catch и finally, в код,
+// который использует исключительно async await и try, catch, finally.
+
+const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
+let isLoading = false;
+const createNewPost = () => {
+    isLoading = true;
+    fetch(POSTS_URL, {
+        method: 'POST',
+    })
+        .then((response) => response.json())
+        .then((result) => {
+            console.log('result', result)
+        })
+        .catch((error) => {
+            console.log('error', error)
+        })
+        .finally(() => {
+            isLoading = false;
+        });
+};
+createNewPost();
+
+//async await
+const POSTS_URL1 = 'https://jsonplaceholder.typicode.com/posts';
+let isLoading1 = false;
+const newCreateNewPost = async() => {
+    try {
+        isLoading1 = true;
+        const response = await fetch(POSTS_URL1, {
+            method: 'POST',
+        })
+        const result = await response.json();
+        console.log('result', result)
+    } catch (error) {
+        console.log('error', error)
+    } finally {
+        isLoading = false;
+    }
+}
+newCreateNewPost();
+
+
+// ==================================================================================================================================================
+//#8 Objects: Задание #1, Повторов: 0
+
+const users = [
+    {
+        username: 'David',
+        status: 'online',
+        lastActivity: 10
+    },
+    {
+        username: 'Lucy',
+        status: 'offline',
+        lastActivity: 22
+    },
+    {
+        username: 'Bob',
+        status: 'online',
+        lastActivity: 104
+    }
+]
+
+const onlineUsers = users.filter(user => user.status === 'online')
+console.log(onlineUsers)
+console.log(`Сейчас в онлайн следующие пользователи: ${onlineUsers.map(onlineUser => onlineUser.username).join(', ')}`)
