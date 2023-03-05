@@ -14,8 +14,8 @@ const tasksListElement = mainElement.querySelector('.tasks');
 const taskModel = new TaskModel([
     {
         id: Date.now(),
-        title: 'Objects: Задание #1',
-        isDone: false,
+        title: 'Objects: Задание #1, Повторов: 1',
+        isDone: true,
     },
     {
         id: Date.now() + 1,
@@ -160,6 +160,36 @@ const taskModel = new TaskModel([
     {
         id: Date.now() + 30,
         title: `Асинхронность (Promise + Fetch): Задание #4 (дополнительное), Повторов: 0`,
+        isDone: false, 
+    },
+    {
+        id: Date.now() + 31,
+        title: `Асинхронность (Async Await): Задание #1, Повторов: 0`,
+        isDone: false, 
+    },
+    {
+        id: Date.now() + 32,
+        title: `Асинхронность (Async Await): Задание #2, Повторов: 0`,
+        isDone: false, 
+    },
+    {
+        id: Date.now() + 33,
+        title: `Асинхронность (Async Await): Задание #3, Повторов: 0`,
+        isDone: false, 
+    },
+    {
+        id: Date.now() + 34,
+        title: `Callback + Event Loop: Задание #1, Повторов: 1`,
+        isDone: true, 
+    },
+    {
+        id: Date.now() + 35,
+        title: `Callback + Event Loop: Задание #2, Повторов: 0`,
+        isDone: false, 
+    },
+    {
+        id: Date.now() + 36,
+        title: `Callback + Event Loop: Задание #3, Повторов: 0`,
         isDone: false, 
     },
 
