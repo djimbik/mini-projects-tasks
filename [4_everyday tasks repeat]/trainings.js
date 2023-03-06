@@ -343,3 +343,71 @@ const users = [
 const onlineUsers = users.filter(user => user.status === 'online')
 console.log(onlineUsers)
 console.log(`Сейчас в онлайн следующие пользователи: ${onlineUsers.map(onlineUser => onlineUser.username).join(', ')}`)
+
+
+
+
+// ==================================================================================================================================================
+//#9 Classes and OOP: Задание #3, Повторов: 0
+
+class Dictionary {
+    constructor(name) {
+        this.name = name;
+
+        this.words = {};
+    }
+
+    add(word, description) {
+        if (!(word in this.words)) {
+            this.words[word] = {
+                word: word,
+                description: description
+            }
+        }
+    }
+
+    remove(key) {
+        delete this.words[key]
+    }
+
+    get(key) {
+        return this.words[key]
+    }
+
+    showAllWords() {
+        const values = Object.values(this.words)
+        console.log(values)
+        values.forEach(value => console.log(`${value.word} - ${value.description}`))
+    }
+}
+
+const dictionary = new Dictionary('Толковый словарь');
+dictionary.add('JavaScript', 'популярный язык программирования');
+dictionary.add('Веб-разработчик', 'Человек, который создает новые сервисы и сайты или поддерживает и дополняет существующие');
+dictionary.remove('JavaScript');
+dictionary.showAllWords();
+
+// ==================================================================================================================================================
+//#10 Classes and OOP: Задание #4, Повторов: 0
+class HardWordsDictionary extends Dictionary {
+    constructor(name) {
+        super(name);
+    }
+
+    add(word, description) {
+        if (!(word in this.words)) {
+            this.words[word] = {
+                word,
+                description,
+                isDifficult: true,
+            }
+        }
+    }
+}
+
+const hardWordsDictionary = new HardWordsDictionary('Сложные слова');
+hardWordsDictionary.add('дилетант', 'Тот, кто занимается наукой или искусством без специальной подготовки, обладая только поверхностными знаниями.');
+hardWordsDictionary.add('неологизм', 'Новое слово или выражение, а также новое значение старого слова.');
+hardWordsDictionary.add('квант', 'Неделимая часть какой-либо величины в физике.');
+hardWordsDictionary.remove('неологизм');
+hardWordsDictionary.showAllWords();
