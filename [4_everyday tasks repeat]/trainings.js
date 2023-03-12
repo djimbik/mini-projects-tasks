@@ -411,3 +411,45 @@ hardWordsDictionary.add('неологизм', 'Новое слово или вы
 hardWordsDictionary.add('квант', 'Неделимая часть какой-либо величины в физике.');
 hardWordsDictionary.remove('неологизм');
 hardWordsDictionary.showAllWords();
+
+
+
+// ==================================================================================================================================================
+//#11 Date: Задание #1, Повторов: 0
+
+const getDateFormat = (date, separator = '.') => {
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    if (day < 10) {
+        day = `0${day}`
+    }
+    if (month < 10) {
+        month = `0${month}`
+    }
+
+    return `${day}${separator}${month}${separator}${year}`
+}
+
+getDateFormat(new Date(2000, 1, 10, 11, 55, 5, 5000))
+getDateFormat(new Date());
+
+//новое решение
+
+const addZero = (item) => String(item).length === 1 ? `0${item}` : String(item);
+
+const getDateFormat1 = (date, separator = '.') => {
+    let day = date.getDate();
+    let month = date.getMonth();
+    const year = date.getFullYear();
+
+    const dayArr = [day, month + 1, year].map(item => addZero(item));
+    return dayArr.join(separator);
+}
+getDateFormat1(new Date());
+
+
+// ==================================================================================================================================================
+//#12 Асинхронность (Promise + Fetch): Задание #2, Повторов: 0
+// Начать завтра с этого задания
