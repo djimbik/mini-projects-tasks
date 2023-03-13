@@ -451,5 +451,38 @@ getDateFormat1(new Date());
 
 
 // ==================================================================================================================================================
-//#12 Асинхронность (Promise + Fetch): Задание #2, Повторов: 0
-// Начать завтра с этого задания
+//Асинхронность (Async Await): Задание #2, Повторов: 0
+
+const TODOS_URL = 'https://jsonplaceholder.typicode.com/todos';
+    const getTodosByIds = (ids) => {
+    const requests = ids.map((id) => fetch(`${TODOS_URL}/${id}`));
+    Promise.all(requests)
+    .then((responses) => {
+    const dataResults = responses.map((data) => data.json());
+    return Promise.all(dataResults)
+    })
+    .then((allTasks) => {
+    console.log(allTasks);
+    })
+    .catch((error) => {
+    console.log(error);
+    })
+}
+getTodosByIds([43, 21, 55, 100, 10]);
+
+
+
+
+const TODOS_URL1 = 'https://jsonplaceholder.typicode.com/todos';
+const getTodosByIds1 = async (ids) => {
+    try {
+        const requests = ids.map((id) => fetch(`${TODOS_URL1}/${id}`));
+        const responses = await Promise.all(requests);
+        const todos = await Promise.all(responses.map((data) => data.json()));
+        console.log(todos);
+    } catch (error) {
+        console.log(error);
+    }
+   
+}
+getTodosByIds1([43, 21, 55, 100, 10]);

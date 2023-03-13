@@ -144,13 +144,13 @@ const taskModel = new TaskModel([
     },
     {
         id: Date.now() + 27,
-        title: `Асинхронность (Promise + Fetch): Задание #1, Повторов: 0`,
-        isDone: false, 
+        title: `Асинхронность (Promise + Fetch): Задание #1, Повторов: 1`,
+        isDone: true, 
     },
     {
         id: Date.now() + 28,
-        title: `Асинхронность (Promise + Fetch): Задание #2, Повторов: 0`,
-        isDone: false, 
+        title: `Асинхронность (Promise + Fetch): Задание #2, Повторов: 1`,
+        isDone: true, 
     },
     {
         id: Date.now() + 29,
@@ -169,8 +169,8 @@ const taskModel = new TaskModel([
     },
     {
         id: Date.now() + 32,
-        title: `Асинхронность (Async Await): Задание #2, Повторов: 0`,
-        isDone: false, 
+        title: `Асинхронность (Async Await): Задание #2, Повторов: 1`,
+        isDone: true, 
     },
     {
         id: Date.now() + 33,
