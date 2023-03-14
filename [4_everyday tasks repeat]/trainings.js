@@ -470,9 +470,6 @@ const TODOS_URL = 'https://jsonplaceholder.typicode.com/todos';
 }
 getTodosByIds([43, 21, 55, 100, 10]);
 
-
-
-
 const TODOS_URL1 = 'https://jsonplaceholder.typicode.com/todos';
 const getTodosByIds1 = async (ids) => {
     try {
@@ -486,3 +483,45 @@ const getTodosByIds1 = async (ids) => {
    
 }
 getTodosByIds1([43, 21, 55, 100, 10]);
+
+
+// ==================================================================================================================================================
+//Date: Задание #3, Повторов: 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,7 +12,7 @@ TaskModel.prototype.add = function (title) {
 };
 
 TaskModel.prototype.complete = function (id) {
-    const existTask = this._tasks.find((task) => task.id == id);
+    const existTask = this._tasks.find((task) => task.id === id);
     existTask.isDone = !existTask.isDone;
 };
 
