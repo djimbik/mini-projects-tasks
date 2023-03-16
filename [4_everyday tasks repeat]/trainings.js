@@ -1,6 +1,6 @@
 // 1 task Objects: Задание #7 (дополнительное), Повторов: 0
 
-const getKiller = (suspectInfo, deadPeople) => {
+const getKiller1 = (suspectInfo, deadPeople) => {
 
     for (let key in suspectInfo) {
         let num = 0;
@@ -15,7 +15,7 @@ const getKiller = (suspectInfo, deadPeople) => {
     }
 }
 
-getKiller(
+getKiller1(
     {
         'James': ['Jacob', 'Bill', 'Lucas'],
         'Johnny': ['David', 'Kyle', 'Lucas'],
@@ -74,7 +74,7 @@ const startGame = (heroPlayer, enemyPlayer) => {
         enemyPlayer["health"] -= 10
     }
 
-    let winner = ''
+    let winner;
 
     while (heroPlayer.health > 0 && enemyPlayer.health > 0) {
         if (getRandomNumberInRange(0, 1) === 0) {
@@ -116,7 +116,7 @@ const getDaysBeforeBirthday = (nextBirthdayDate) => {
     return convertMsToDays(daysToBirthdayParty)
 }
 
-getDaysBeforeBirthday(new Date(2024, 08, 24))
+getDaysBeforeBirthday(new Date(2024, 8, 24))
 
 
 
@@ -133,10 +133,6 @@ class Developer {
     }
 
     code() {}
-
-    learnNewTechnology(technology) {
-        this.technologies.push(technology)
-    }
 }
 
 class JuniorDeveloper extends Developer {
@@ -196,11 +192,11 @@ class Person {
         this.age = age;
     }
 
-    compareAge(isperson) {
-        if(this.age >= isperson.age) {
-            console.log(`${this.name} старше, чем ${isperson.name}`)
+    compareAge(isPerson) {
+        if(this.age >= isPerson.age) {
+            console.log(`${this.name} старше, чем ${isPerson.name}`)
         } else {
-            console.log(`${this.name} младше, чем ${isperson.name}`)
+            console.log(`${this.name} младше, чем ${isPerson.name}`)
         }
     }
 }
@@ -457,15 +453,15 @@ const TODOS_URL = 'https://jsonplaceholder.typicode.com/todos';
     const getTodosByIds = (ids) => {
     const requests = ids.map((id) => fetch(`${TODOS_URL}/${id}`));
     Promise.all(requests)
-    .then((responses) => {
-    const dataResults = responses.map((data) => data.json());
-    return Promise.all(dataResults)
+        .then((responses) => {
+        const dataResults = responses.map((data) => data.json());
+        return Promise.all(dataResults)
     })
     .then((allTasks) => {
-    console.log(allTasks);
+        console.log(allTasks);
     })
     .catch((error) => {
-    console.log(error);
+        console.log(error);
     })
 }
 getTodosByIds([43, 21, 55, 100, 10]);
@@ -486,7 +482,9 @@ getTodosByIds1([43, 21, 55, 100, 10]);
 
 
 // ==================================================================================================================================================
-//Date: Задание #3, Повторов: 0
+// DOM: Задание #1, Повторов: 1
+
+
 
 
 
