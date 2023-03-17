@@ -105,12 +105,71 @@ createTaskBlock.addEventListener('submit', (event) => {
     }
 })
 
+const createDeleteModal = (text) => {
+    const modalOverlay = document.createElement('div');
+    modalOverlay.className = 'modal-overlay modal-overlay_hidden';
 
+    const deleteModal = document.createElement('div');
+    deleteModal.className = 'delete-modal';
 
+    modalOverlay.append(deleteModal);
 
+    const modalTitle = document.createElement('h3');
+    modalTitle.className = 'delete-modal__question';
+    modalTitle.innerText = text;
+    const modalButtons = document.createElement('div');
+    modalButtons.className = 'delete-modal__buttons';
 
+    const cancelButton = document.createElement('button');
+    cancelButton.className = 'delete-modal__button delete-modal__cancel-button';
+    cancelButton.innerText = 'Отмена'
+    const confirmButton = document.createElement('button');
+    confirmButton.className = 'delete-modal__button delete-modal__confirm-button';
+    confirmButton.innerText = 'Удалить';
 
+    deleteModal.append(modalTitle, modalButtons);
+    modalButtons.append(cancelButton, confirmButton);
 
+    return {
+        cancelButton,
+        confirmButton,
+        modalOverlay,
+    };
+}
+
+let targetTaskIdToDelete = null;
+
+const {
+    cancelButton, confirmButton, modalOverlay
+} = createDeleteModal('Вы действительно хотите удалить эту задачу?');
+document.body.prepend(modalOverlay);
+
+cancelButton.addEventListener('click', () => {
+    modalOverlay.classList.add('modal-overlay_hidden');
+});
+
+confirmButton.addEventListener('click', () => {
+    modalOverlay.classList.add('modal-overlay_hidden');
+    const taskToDeleteIndex = tasks.findIndex(task => task.id === targetTaskIdToDelete);
+    tasks.splice(taskToDeleteIndex, 1);
+    const taskItemHTML = document.querySelector(`[data-task-id="${targetTaskIdToDelete}"]`);
+    taskItemHTML.remove()
+
+})
+
+tasksList.addEventListener('click', (event) => {
+    const { target } = event;
+    const deleteButton = target.closest('.task-item__delete-button');
+
+    if(deleteButton) {
+        const taskItem = deleteButton.closest('.task-item');
+        if(taskItem) {
+            const taskId = taskItem.dataset.taskId
+            targetTaskIdToDelete = taskId;
+            modalOverlay.classList.remove('modal-overlay_hidden');
+        }
+    }
+})
 
 
 
