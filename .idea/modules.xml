@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../BiG Project - news/.idea/BiG Project - news.iml" filepath="$PROJECT_DIR$/../../BiG Project - news/.idea/BiG Project - news.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../Code MU/.idea/Code MU.iml" filepath="$PROJECT_DIR$/../../Code MU/.idea/Code MU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../djimbik.github.io/.idea/djimbik.github.io.iml" filepath="$PROJECT_DIR$/../../djimbik.github.io/.idea/djimbik.github.io.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/mini-projects-tasks.iml" filepath="$PROJECT_DIR$/.idea/mini-projects-tasks.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../../../Users/73B5~1/AppData/Local/Temp/tasks_OOP.js11365012858095596338/.idea/tasks_OOP.js11365012858095596338.iml" filepath="$PROJECT_DIR$/../../../../Users/73B5~1/AppData/Local/Temp/tasks_OOP.js11365012858095596338/.idea/tasks_OOP.js11365012858095596338.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../[Д. Безуглый, А. Резник, А. Стамбульцян и др.] Frontend уровня топовых компаний. Часть 1 из 5 (2022)/Практика/.idea/Практика.iml" filepath="$PROJECT_DIR$/../../[Д. Безуглый, А. Резник, А. Стамбульцян и др.] Frontend уровня топовых компаний. Часть 1 из 5 (2022)/Практика/.idea/Практика.iml" />
     </modules>
   </component>
 </project>
