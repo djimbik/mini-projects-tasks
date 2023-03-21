@@ -482,26 +482,90 @@ getTodosByIds1([43, 21, 55, 100, 10]);
 
 
 // ==================================================================================================================================================
-// Асинхронный код все задачи
+// Асинхронность (Async Await): Задание #1, Повторов: 0
+
+const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
+let isLoading = false;
+const createNewPost = () => {
+    isLoading = true;
+    fetch(POSTS_URL, {
+        method: 'POST',
+    })
+        .then((response) => response.json())
+        .then((result) => {
+            console.log('result', result)
+        })
+        .catch((error) => {
+            console.log('error', error)
+        })
+        .finally(() => {
+            isLoading = false;
+        });
+};
+createNewPost()
 
 
+const POSTS_URL1 = 'https://jsonplaceholder.typicode.com/posts';
+let isLoading1 = false;
+
+const createNewPost1 = async () => {
+    try {
+        isLoading = true;
+        const response = await fetch(POSTS_URL1);
+        if(!response.ok) {
+            throw new Error('Ну ептыть!')
+        }
+        const posts = await response.json();
+        console.log(posts)
+    } catch (error) {
+        console.log('error', error)
+    } finally {
+        isLoading = false;
+    };
+};
+createNewPost1();
+
+// ==================================================================================================================================================
+// Асинхронность (Async Await): Задание #2, Повторов: 1
+
+const TODOS_URL = 'https://jsonplaceholder.typicode.com/todos';
+const getTodosByIds = (ids) => {
+    const requests = ids.map((id) => fetch(`${TODOS_URL}/${id}`));
+    Promise.all(requests)
+        .then((responses) => {
+            const dataResults = responses.map((data) => data.json());
+            return Promise.all(dataResults)
+        })
+        .then((allTasks) => {
+            console.log(allTasks);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+}
+getTodosByIds([43, 21, 55, 100, 10]);
 
 
+const TODOS_URL2 = 'https://jsonplaceholder.typicode.com/todos';
 
+const getTodosByIds2 = async (ids) => {
+    try {
+        const requests = ids.map((id) => fetch(`${TODOS_URL2}/${id}`));
+        const responses = await Promise.all(requests);
+        responses.forEach(response => {
+            if (!response.ok) {
+                throw new Error('Ну ептыть')
+            }
+        })
+        const todos = responses.map(response => response.json());
+        const results = await Promise.all(todos);
+        console.log(results)
+    } catch (error) {
+        console.log('error', error)
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
+getTodosByIds2 ([43, 21, 55, 100, 10]);
 
 
 
