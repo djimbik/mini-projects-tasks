@@ -25,4 +25,4 @@ const renderAlbums = async () => {
 
 }
 
-renderAlbums()
+renderAlbums();
