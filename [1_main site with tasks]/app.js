@@ -174,23 +174,23 @@ const taskModel = new TaskModel([
     },
     {
         id: Date.now() + 33,
-        title: `Асинхронность (Async Await): Задание #3, Повторов: 0`,
-        isDone: false, 
+        title: `Асинхронность (Async Await): Задание #3, Повторов: 1`,
+        isDone: true,
     },
     {
         id: Date.now() + 34,
-        title: `Callback + Event Loop: Задание #1, Повторов: 1`,
+        title: `Callback + Event Loop: Задание #1, Повторов: 2`,
         isDone: true, 
     },
     {
         id: Date.now() + 35,
-        title: `Callback + Event Loop: Задание #2, Повторов: 0`,
-        isDone: false, 
+        title: `Callback + Event Loop: Задание #2, Повторов: 1`,
+        isDone: true,
     },
     {
         id: Date.now() + 36,
-        title: `Callback + Event Loop: Задание #3, Повторов: 0`,
-        isDone: false, 
+        title: `Callback + Event Loop: Задание #3, Повторов: 1`,
+        isDone: true,
     },
 
 ]);
