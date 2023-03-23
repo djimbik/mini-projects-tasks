@@ -568,10 +568,53 @@ const getTodosByIds2 = async (ids) => {
 getTodosByIds2 ([43, 21, 55, 100, 10]);
 
 
+// ==================================================================================================================================================
+// Objects: Задание #1, Повторов: 1
 
+const users = [
+    {
+        username: 'David',
+        status: 'online',
+        lastActivity: 10
+    },
+    {
+        username: 'Lucy',
+        status: 'offline',
+        lastActivity: 22
+    },
+    {
+        username: 'Bob',
+        status: 'online',
+        lastActivity: 104
+    }
+];
 
+const onlineUsers =  users.filter(user => user.status === 'online');
+const usersOnlineNames = onlineUsers.map(onlineUsers => onlineUsers.username)
 
+alert(`Сейчас в онлайн следующие пользователи: ${usersOnlineNames.join(', ')}`)
 
+console.log(onlineUsers);
+
+// ==================================================================================================================================================
+// Objects: Задание #2, Повторов: 1
+
+const ordersArr = [4, 2, 1, 3];
+const people = [
+    { id: 1, name: "Максим" },
+    { id: 2, name: "Николай" },
+    { id: 3, name: "Ангелина" },
+    { id: 4, name: "Виталий" },
+];
+
+console.log(people.filter(man => man.id === 3))
+
+const giveTalonsInOrder = (patients, orders) => {
+    return orders.map((order) => patients.filter(man => man.id === order)[0])
+}
+
+const result = giveTalonsInOrder(people, ordersArr);
+console.log('result', result);
 
 
 
