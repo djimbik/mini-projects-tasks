@@ -617,6 +617,54 @@ const result = giveTalonsInOrder(people, ordersArr);
 console.log('result', result);
 
 
+// ==================================================================================================================================================
+// Objects: Задание #3, Повторов: 1
+
+const secondHandleObject = (obj, key, action) => {
+    switch (action) {
+        case "get":
+            return obj[key];
+        case "add":
+             obj[key] = '';
+            return obj
+        case 'delete':
+            delete obj[key];
+            return obj;
+        default:
+            return obj;
+    }
+}
+
+const student = {
+    name: 'Maxim',
+    programmingLanguage: 'JavaScript',
+}
+const result = secondHandleObject(student, 'programmingLanguage',
+    'delete');
+console.log('result', result);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
