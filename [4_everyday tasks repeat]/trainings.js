@@ -537,7 +537,7 @@ const getTodosByIds = (ids) => {
             return Promise.all(dataResults)
         })
         .then((allTasks) => {
-            console.log(allTasks);
+          console.log(allTasks);
         })
         .catch((error) => {
             console.log(error);
@@ -575,7 +575,7 @@ const users = [
     {
         username: 'David',
         status: 'online',
-        lastActivity: 10
+       lastActivity: 10
     },
     {
         username: 'Lucy',
@@ -613,8 +613,94 @@ const giveTalonsInOrder = (patients, orders) => {
     return orders.map((order) => patients.filter(man => man.id === order)[0])
 }
 
-const result = giveTalonsInOrder(people, ordersArr);
+ const result = giveTalonsInOrder(people, ordersArr);
 console.log('result', result);
+
+
+// ==================================================================================================================================================
+// Objects: Задание #3, Повторов: 1
+
+const secondHandleObject = (obj, key, action) => {
+    switch (action) {
+        case "get":
+            return obj[key];
+        case "add":
+             obj[key] = '';
+            return obj
+        case 'delete':
+            delete obj[key];
+            return obj;
+        default:
+            return obj;
+    }
+}
+
+const student = {
+    name: 'Maxim',
+    programmingLanguage: 'JavaScript',
+}
+const result = secondHandleObject(student, 'programmingLanguage',
+    'delete');
+console.log('result', result);
+
+
+// ==================================================================================================================================================
+// Objects: Задание #4, Повторов: 0
+
+const giveJobToStudent = (student, jobName) => {
+    console.log(`Поздравляем! У студента ${student.fullName} появилась новая работа! Теперь он ${jobName}`);
+
+    student["job"] = jobName;
+
+    console.log(student)
+    return student
+}
+
+const student = {
+    fullName: 'Максим',
+    experienceInMonths: 12,
+    stack: ['HTML', 'CSS', 'JavaScript', 'React'],
+}
+const updatedStudent = giveJobToStudent(student, 'веб-разработчик');
+
+// ==================================================================================================================================================
+// Objects: Задание #5, Повторов: 0
+
+const groceries = {
+    "Orange Juice": {
+        price : 1.5,
+        discount: 10,
+    },
+    "Chocolate": {
+        price : 2,
+        discount : 0,
+    },
+// more items...
+}
+const getTotalPriceOfShoppingBag = (shoppingBag) => {
+    return shoppingBag.reduce((sum, current) => {
+        const currentProductPrice = current.quantity * groceries[current.product].price;
+        const currentProductPriceWithDiscount =
+            currentProductPrice - (currentProductPrice * groceries[current.product].discount / 100);
+        return sum + currentProductPriceWithDiscount
+    }, 0)
+}
+
+const shoppingBag = [
+    { product: 'Chocolate', quantity: 3 },
+    { product: 'Orange Juice', quantity: 23 },
+]
+
+const totalPrice = getTotalPriceOfShoppingBag(shoppingBag);
+console.log('totalPrice', totalPrice);
+
+
+
+
+
+
+
+
 
 
 
