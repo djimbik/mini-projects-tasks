@@ -29,13 +29,13 @@ const taskModel = new TaskModel([
     },
     {
         id: Date.now() + 3,
-        title: `Objects: Задание #4, Повторов: 0`,
-        isDone: false,
+        title: `Objects: Задание #4, Повторов: 1`,
+        isDone: true,
     },
     {
         id: Date.now() + 4,
-        title: `Objects: Задание #5 (дополнительное), Повторов: 0`,
-        isDone: false,
+        title: `Objects: Задание #5 (дополнительное), Повторов: 1`,
+        isDone: true,
     },
     {
         id: Date.now() + 5,
