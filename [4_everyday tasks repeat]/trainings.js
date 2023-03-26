@@ -694,6 +694,67 @@ const shoppingBag = [
 const totalPrice = getTotalPriceOfShoppingBag(shoppingBag);
 console.log('totalPrice', totalPrice);
 
+// ==================================================================================================================================================
+// Objects: Задание #6, Повторов: 1
+function getRandomNumberInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const startGame = (heroPlayer, enemyPlayer) => {
+    while (heroPlayer.health > 0 && enemyPlayer.health > 0) {
+        const randomNumber =  getRandomNumberInRange(0, 1);
+        console.log(randomNumber)
+
+        if (randomNumber === 0) {
+            heroPlayer.heatEnemy();
+        } else {
+            enemyPlayer.heatHero();
+        }
+    }
+
+    const winnerName = heroPlayer.health > 0 ? heroPlayer.name : enemyPlayer.name;
+    const winnerHealth = heroPlayer.health > 0 ? heroPlayer.health : enemyPlayer.health;
+
+    return console.log(`${winnerName} победил! У него осталось ${winnerHealth} здоровья`)
+}
+
+const hero = {
+    name: 'Batman',
+    health: 100,
+    heatEnemy() {
+        enemy.health -= 10;
+    }
+}
+const enemy = {
+    name: 'Joker',
+    health: 100,
+    heatHero() {
+        hero.health -= 10;
+    }
+}
+startGame(hero, enemy);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
