@@ -735,14 +735,39 @@ const enemy = {
 startGame(hero, enemy);
 
 
+// ==================================================================================================================================================
+// Objects: Задание #7, Повторов: 1
 
+const getKiller = (suspectInfo, deadPeople) => {
+   const suspectArr = Object.values(suspectInfo);
+   console.log(suspectArr);
 
+    const killerIndex = suspectArr.findIndex(miniSuspectArr => deadPeople.every(deadMan => miniSuspectArr.includes(deadMan)));
 
+    const suspectNames = Object.keys(suspectInfo);
 
+    const killer = suspectNames[killerIndex]
 
+   console.log(killer)
+}
 
+getKiller(
+    {
+        'James': ['Jacob', 'Bill', 'Lucas'],
+        'Johnny': ['David', 'Kyle', 'Lucas'],
+        'Peter': ['Lucy', 'Kyle'],
+    },
+    ['Lucas', 'Bill']
+);
 
-
+getKiller(
+    {
+        'Brad': [],
+        'Megan': ['Ben', 'Kevin'],
+        'Finn': [],
+    },
+    ['Ben']
+);
 
 
 
