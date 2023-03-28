@@ -49,8 +49,8 @@ const taskModel = new TaskModel([
     },
     {
         id: Date.now() + 7,
-        title: `Objects: Задание #8 (дополнительное), Повторов: 0`,
-        isDone: false,
+        title: `Objects: Задание #8 (дополнительное), Повторов: 1`,
+        isDone: true,
     },
     {
         id: Date.now() + 12,
