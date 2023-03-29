@@ -769,6 +769,83 @@ getKiller(
     ['Ben']
 );
 
+// ==================================================================================================================================================
+// Objects: Задание #8, Повторов: 0
+function getRandomNumberInRange(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+const getWinner = (applicants, winnerObject) => {
+   const applicantsArr = Object.keys(applicants);
+
+   const winnerNumber = applicantsArr[getRandomNumberInRange(0, applicantsArr.length - 1)];
+    const winnerPerson = applicants[winnerNumber];
+
+    return  {
+        ...winnerObject,
+        ...winnerPerson
+    }
+}
+
+const todaysWinner = {
+    prize: '10 000$',
+}
+const winnerApplicants = {
+    '001': {
+        name: 'Максим',
+        age: 25,
+    },
+    '201': {
+        name: 'Светлана',
+        age: 20,
+    },
+    '304': {
+        name: 'Екатерина',
+        age: 35,
+    },
+}
+
+const resultWinner = getWinner(winnerApplicants, todaysWinner);
+console.log('resultWinner', resultWinner);
+
+
+// ==================================================================================================================================================
+// Date: Задание #1, Повторов: 1
+
+const addZero = (number) => number.toString().length === 1 ? `0${number}` : number.toString()
+const getDateFormat = (date, separator) => {
+    const day = date.getDate();
+    let month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    const dateArray = [day, month, year].map(item => addZero(item))
+
+    return dateArray.join(separator)
+}
+
+const today = new Date()
+
+console.log(getDateFormat(today, '-'))
+
+
+// ==================================================================================================================================================
+// Date: Задание #2, Повторов: 1
+
+const convertMsToDays = (ms) => {
+    return ms / 1000 / 60 / 60 / 24
+}
+
+const getDaysBeforeBirthday = (nextBirthdayDate) => {
+    const today = new Date()
+
+    return Math.round(convertMsToDays(nextBirthdayDate - today))
+}
+const myBirthDay = new Date(2023, 11, 11)
+getDaysBeforeBirthday (myBirthDay)
+
+
+
+
+
 
 
 

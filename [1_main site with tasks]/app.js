@@ -49,17 +49,17 @@ const taskModel = new TaskModel([
     },
     {
         id: Date.now() + 7,
-        title: `Objects: Задание #8 (дополнительное), Повторов: 0`,
-        isDone: false,
+        title: `Objects: Задание #8 (дополнительное), Повторов: 1`,
+        isDone: true,
     },
     {
         id: Date.now() + 12,
-        title: `Date: Задание #1, Повторов: 1`,
+        title: `Date: Задание #1, Повторов: 2`,
         isDone: true,
     },
     {
         id: Date.now() + 13,
-        title: `Date: Задание #2, Повторов: 1`,
+        title: `Date: Задание #2, Повторов: 2`,
         isDone: true,
     },
     {
@@ -70,6 +70,26 @@ const taskModel = new TaskModel([
     {
         id: Date.now() + 15,
         title: `Date: Задание #4 (дополнительное), Повторов: 0`,
+        isDone: false,
+    },
+    {
+        id: Date.now() + 15,
+        title: `Ключевое слово this: Задание #1, Повторов: 0`,
+        isDone: false,
+    },
+    {
+        id: Date.now() + 15,
+        title: `Ключевое слово this: Задание #2, Повторов: 0`,
+        isDone: false,
+    },
+    {
+        id: Date.now() + 15,
+        title: `Ключевое слово this: Задание #3, Повторов: 0`,
+        isDone: false,
+    },
+    {
+        id: Date.now() + 15,
+        title: `Ключевое слово this: Задание #4, Повторов: 0`,
         isDone: false,
     },
     {
