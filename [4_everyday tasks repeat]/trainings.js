@@ -808,6 +808,49 @@ const resultWinner = getWinner(winnerApplicants, todaysWinner);
 console.log('resultWinner', resultWinner);
 
 
+// ==================================================================================================================================================
+// Date: Задание #1, Повторов: 1
+
+const addZero = (number) => number.toString().length === 1 ? `0${number}` : number.toString()
+const getDateFormat = (date, separator) => {
+    const day = date.getDate();
+    let month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    const dateArray = [day, month, year].map(item => addZero(item))
+
+    return dateArray.join(separator)
+}
+
+const today = new Date()
+
+console.log(getDateFormat(today, '-'))
+
+
+// ==================================================================================================================================================
+// Date: Задание #2, Повторов: 1
+
+const convertMsToDays = (ms) => {
+    return ms / 1000 / 60 / 60 / 24
+}
+
+const getDaysBeforeBirthday = (nextBirthdayDate) => {
+    const today = new Date()
+
+    return Math.round(convertMsToDays(nextBirthdayDate - today))
+}
+const myBirthDay = new Date(2023, 11, 11)
+getDaysBeforeBirthday (myBirthDay)
+
+
+
+
+
+
+
+
+
+
 
 
 
