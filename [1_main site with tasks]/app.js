@@ -64,13 +64,13 @@ const taskModel = new TaskModel([
     },
     {
         id: Date.now() + 14,
-        title: `Date: Задание #3, Повторов: 0`,
-        isDone: false,
+        title: `Date: Задание #3, Повторов: 1`,
+        isDone: true,
     },
     {
         id: Date.now() + 15,
-        title: `Date: Задание #4 (дополнительное), Повторов: 0`,
-        isDone: false,
+        title: `Date: Задание #4 (дополнительное), Повторов: 1`,
+        isDone: true,
     },
     {
         id: Date.now() + 15,
