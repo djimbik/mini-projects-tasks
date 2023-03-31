@@ -843,16 +843,67 @@ const myBirthDay = new Date(2023, 11, 11)
 getDaysBeforeBirthday (myBirthDay)
 
 
+// ==================================================================================================================================================
+// Date: Задание #3, Повторов: 0
+
+const addDays = (date, days = 1) => {
+    const dateMs = date.getTime();
+    const daysMs = days * 24 * 60 * 60 * 1000
+
+    return new Date(dateMs + daysMs)
+}
+
+const todaye = new Date()
 
 
+const newDate = addDays(todaye, 3)
+
+console.log(newDate)
 
 
+// ==================================================================================================================================================
+// Date: Задание #4, Повторов: 0
 
+const allowVisa = (arr) => {
+   return arr.filter(item => {
+        const date = item.passportExpiration.split('.')
+        const day = date[0];
+        const month = date[1] - 1;
+        const year = date[2];
+        console.log(new Date(year, month, day).getTime());
+        console.log(new Date(Date.now()))
+       return new Date(year, month, day).getTime() > new Date(Date.now()) && !item.criminalRecord
+    })
+}
 
-
-
-
-
+const peopleWithVisa = [
+    {
+        firstName: 'Stasia',
+        lastName: 'Ward',
+        criminalRecord: false,
+        passportExpiration: '19.06.2023',
+    },
+    {
+        firstName: 'Elliot',
+        lastName: 'Baker',
+        criminalRecord: false,
+        passportExpiration: '04.06.2021',
+    },
+    {
+        firstName: 'Leighann',
+        lastName: 'Scott',
+        criminalRecord: true,
+        passportExpiration: '31.07.2022',
+    },
+    {
+        firstName: 'Nick',
+        lastName: 'Pop',
+        criminalRecord: false,
+        passportExpiration: '31.12.2021',
+    },
+];
+const result = allowVisa(peopleWithVisa);
+console.log('result', result);
 
 
 
