@@ -946,6 +946,65 @@ console.log(student.stack)
 // ==================================================================================================================================================
 // Ключевое слово this: Задание #2, Повторов: 0
 
+const dog = {
+    name: 'Чарли',
+    type: 'Собака',
+    makeSound() {
+        return 'Гав-Гав';
+    }
+}
+const bird = {
+    name: 'Петя',
+    type: 'Воробей',
+    makeSound() {
+        return 'Чик-чирик';
+    }
+}
+
+const makeDomestic = function (isDomestic){
+    console.log(`${this.type} по имени ${this.name} говорит ${this.makeSound()}`);
+    this.isDomestic = isDomestic;
+    return this
+}
+
+
+makeDomestic.bind(dog, true)();
+
+makeDomestic.call(bird, false);
+
+makeDomestic.apply(bird, [false])
+
+
+// ==================================================================================================================================================
+// Ключевое слово this: Задание #3, Повторов: 0
+
+const footballer = {
+    fullName: 'Cristiano Ronaldo',
+    attack(){
+        console.log(`${this.fullName} сейчас с мячом и начинает
+атаку!`);
+    },
+    scoreGoal(sound) {
+        console.log(`${this.fullName} забил гол! Вот это да!`);
+        this.celebrate(sound);
+    },
+    celebrate(sound) {
+        console.log(sound);
+    },
+    goToSubstitution: function(newPlayer) {
+        console.log(`${this.fullName} уходит на замену.
+На поле выходит ${newPlayer}`);
+    }
+};
+const attack = footballer.attack.bind(footballer)();
+const score = footballer.scoreGoal.call(footballer, 'СИИИИИИИИИИИИИ');
+const substitute = footballer.goToSubstitution.apply(footballer, ['Paulo Dibala']);
+
+
+
+// ==================================================================================================================================================
+// Ключевое слово this: Задание #4, Повторов: 0
+
 
 
 
