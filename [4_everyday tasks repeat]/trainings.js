@@ -22,8 +22,8 @@ getKiller1(
         'Peter': ['Lucy', 'Kyle'],
     },
     ['Lucas', 'Bill']
-    ); // Убийца James
-    getKiller(
+); // Убийца James
+getKiller(
     {
         'Brad': [],
         'Megan': ['Ben', 'Kevin'],
@@ -41,7 +41,7 @@ function getKiller(suspectInfo, deadPeople) {
 
         const isKiller = deadPeople.every((deadName) => peopleWereSeen.includes(deadName))
 
-        if(isKiller) {
+        if (isKiller) {
             killerName = suspectPerson;
         }
     })
@@ -51,9 +51,9 @@ function getKiller(suspectInfo, deadPeople) {
 
 getKiller(
     {
-    'James': ['Jacob', 'Bill', 'Lucas'],
-    'Johnny': ['David', 'Kyle', 'Lucas'],
-    'Peter': ['Lucy', 'Kyle'],
+        'James': ['Jacob', 'Bill', 'Lucas'],
+        'Johnny': ['David', 'Kyle', 'Lucas'],
+        'Peter': ['Lucy', 'Kyle'],
     },
     ['Lucas', 'Bill']
 );
@@ -65,7 +65,7 @@ const startGame = (heroPlayer, enemyPlayer) => {
     function getRandomNumberInRange(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    
+
     const heatEnemy = () => {
         heroPlayer.health -= 10
     }
@@ -101,7 +101,7 @@ const enemy = {
     health: 100,
 }
 startGame(hero, enemy);
-    
+
 
 // ==================================================================================================================================================
 //#3 Date: Задание #2, Повторов: 0
@@ -111,13 +111,12 @@ const getDaysBeforeBirthday = (nextBirthdayDate) => {
     const today = Date.now();
     const daysToBirthdayParty = nextBirthDay - today
     const convertMsToDays = (ms) => {
-      return  Math.round(ms / 1000 / 60 / 60 / 24) 
+        return Math.round(ms / 1000 / 60 / 60 / 24)
     }
     return convertMsToDays(daysToBirthdayParty)
 }
 
 getDaysBeforeBirthday(new Date(2024, 8, 24))
-
 
 
 // ==================================================================================================================================================
@@ -132,7 +131,8 @@ class Developer {
         this.technologies = [];
     }
 
-    code() {}
+    code() {
+    }
 }
 
 class JuniorDeveloper extends Developer {
@@ -151,6 +151,7 @@ class MiddleDeveloper extends Developer {
         super(fullName, age, position);
         this.technologies = ['HTML', 'CSS', 'JavaScript', 'React'];
     }
+
     code() {
         console.log(`${this.position} разработчик пишет код...`)
     }
@@ -174,13 +175,11 @@ juniorDeveloper.code(); // Junior разработчик пишет код...
 middleDeveloper.code(); // Middle разработчик пишет код…
 seniorDeveloper.code(); // Senior разработчик пишет код...
 console.log(juniorDeveloper.fullName, juniorDeveloper.age,
-juniorDeveloper.position); // 'Анастасия', 20, 'Junior'
+    juniorDeveloper.position); // 'Анастасия', 20, 'Junior'
 console.log(middleDeveloper.fullName, middleDeveloper.age,
-middleDeveloper.position); // 'Игорь', 25, 'Middle'
+    middleDeveloper.position); // 'Игорь', 25, 'Middle'
 console.log(seniorDeveloper.fullName, seniorDeveloper.age,
-seniorDeveloper.position); // 'Максим', 30, 'Senior'
-
-
+    seniorDeveloper.position); // 'Максим', 30, 'Senior'
 
 
 // ==================================================================================================================================================
@@ -193,7 +192,7 @@ class Person {
     }
 
     compareAge(isPerson) {
-        if(this.age >= isPerson.age) {
+        if (this.age >= isPerson.age) {
             console.log(`${this.name} старше, чем ${isPerson.name}`)
         } else {
             console.log(`${this.name} младше, чем ${isPerson.name}`)
@@ -209,8 +208,6 @@ person2.compareAge(person3); // Светлана старше, чем Ирина
 person3.compareAge(person1); // Ирина младше, чем Максим
 
 
-
-
 // ==================================================================================================================================================
 //#6 Objects: Задание #3, Повторов: 0
 const handleObject = (obj, key, action) => {
@@ -218,8 +215,8 @@ const handleObject = (obj, key, action) => {
         case "get":
             return obj[key];
         case "add":
-             obj[key] = '';
-             return obj;
+            obj[key] = '';
+            return obj;
         case "delete":
             delete obj[key];
             return obj;
@@ -233,9 +230,8 @@ const student = {
     programmingLanguage: 'JavaScript',
 }
 const result = handleObject(student, 'programmingLanguage',
-'get');
+    'get');
 console.log('result', result);
-    
 
 
 // ==================================================================================================================================================
@@ -261,13 +257,10 @@ class Student {
     }
 }
 
-const student1 = new Student ('Maxim', 20);
-student1.setTechnologies([ 'HTML', 'CSS', 'JavaScript' ]);
+const student1 = new Student('Maxim', 20);
+student1.setTechnologies(['HTML', 'CSS', 'JavaScript']);
 student1.setNewStatus('Middle');
 console.log(student1);
-
-
-
 
 
 // ==================================================================================================================================================
@@ -298,7 +291,7 @@ createNewPost();
 //async await
 const POSTS_URL1 = 'https://jsonplaceholder.typicode.com/posts';
 let isLoading1 = false;
-const newCreateNewPost = async() => {
+const newCreateNewPost = async () => {
     try {
         isLoading1 = true;
         const response = await fetch(POSTS_URL1, {
@@ -339,8 +332,6 @@ const users = [
 const onlineUsers = users.filter(user => user.status === 'online')
 console.log(onlineUsers)
 console.log(`Сейчас в онлайн следующие пользователи: ${onlineUsers.map(onlineUser => onlineUser.username).join(', ')}`)
-
-
 
 
 // ==================================================================================================================================================
@@ -409,7 +400,6 @@ hardWordsDictionary.remove('неологизм');
 hardWordsDictionary.showAllWords();
 
 
-
 // ==================================================================================================================================================
 //#11 Date: Задание #1, Повторов: 0
 
@@ -450,19 +440,19 @@ getDateFormat1(new Date());
 //Асинхронность (Async Await): Задание #2, Повторов: 0
 
 const TODOS_URL = 'https://jsonplaceholder.typicode.com/todos';
-    const getTodosByIds = (ids) => {
+const getTodosByIds = (ids) => {
     const requests = ids.map((id) => fetch(`${TODOS_URL}/${id}`));
     Promise.all(requests)
         .then((responses) => {
-        const dataResults = responses.map((data) => data.json());
-        return Promise.all(dataResults)
-    })
-    .then((allTasks) => {
-        console.log(allTasks);
-    })
-    .catch((error) => {
-        console.log(error);
-    })
+            const dataResults = responses.map((data) => data.json());
+            return Promise.all(dataResults)
+        })
+        .then((allTasks) => {
+            console.log(allTasks);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
 }
 getTodosByIds([43, 21, 55, 100, 10]);
 
@@ -476,7 +466,7 @@ const getTodosByIds1 = async (ids) => {
     } catch (error) {
         console.log(error);
     }
-   
+
 }
 getTodosByIds1([43, 21, 55, 100, 10]);
 
@@ -512,7 +502,7 @@ const createNewPost1 = async () => {
     try {
         isLoading = true;
         const response = await fetch(POSTS_URL1);
-        if(!response.ok) {
+        if (!response.ok) {
             throw new Error('Ну ептыть!')
         }
         const posts = await response.json();
@@ -521,7 +511,8 @@ const createNewPost1 = async () => {
         console.log('error', error)
     } finally {
         isLoading = false;
-    };
+    }
+    ;
 };
 createNewPost1();
 
@@ -537,7 +528,7 @@ const getTodosByIds = (ids) => {
             return Promise.all(dataResults)
         })
         .then((allTasks) => {
-          console.log(allTasks);
+            console.log(allTasks);
         })
         .catch((error) => {
             console.log(error);
@@ -565,7 +556,7 @@ const getTodosByIds2 = async (ids) => {
     }
 
 }
-getTodosByIds2 ([43, 21, 55, 100, 10]);
+getTodosByIds2([43, 21, 55, 100, 10]);
 
 
 // ==================================================================================================================================================
@@ -575,7 +566,7 @@ const users = [
     {
         username: 'David',
         status: 'online',
-       lastActivity: 10
+        lastActivity: 10
     },
     {
         username: 'Lucy',
@@ -589,7 +580,7 @@ const users = [
     }
 ];
 
-const onlineUsers =  users.filter(user => user.status === 'online');
+const onlineUsers = users.filter(user => user.status === 'online');
 const usersOnlineNames = onlineUsers.map(onlineUsers => onlineUsers.username)
 
 alert(`Сейчас в онлайн следующие пользователи: ${usersOnlineNames.join(', ')}`)
@@ -601,10 +592,10 @@ console.log(onlineUsers);
 
 const ordersArr = [4, 2, 1, 3];
 const people = [
-    { id: 1, name: "Максим" },
-    { id: 2, name: "Николай" },
-    { id: 3, name: "Ангелина" },
-    { id: 4, name: "Виталий" },
+    {id: 1, name: "Максим"},
+    {id: 2, name: "Николай"},
+    {id: 3, name: "Ангелина"},
+    {id: 4, name: "Виталий"},
 ];
 
 console.log(people.filter(man => man.id === 3))
@@ -613,7 +604,7 @@ const giveTalonsInOrder = (patients, orders) => {
     return orders.map((order) => patients.filter(man => man.id === order)[0])
 }
 
- const result = giveTalonsInOrder(people, ordersArr);
+const result = giveTalonsInOrder(people, ordersArr);
 console.log('result', result);
 
 
@@ -625,7 +616,7 @@ const secondHandleObject = (obj, key, action) => {
         case "get":
             return obj[key];
         case "add":
-             obj[key] = '';
+            obj[key] = '';
             return obj
         case 'delete':
             delete obj[key];
@@ -668,12 +659,12 @@ const updatedStudent = giveJobToStudent(student, 'веб-разработчик'
 
 const groceries = {
     "Orange Juice": {
-        price : 1.5,
+        price: 1.5,
         discount: 10,
     },
     "Chocolate": {
-        price : 2,
-        discount : 0,
+        price: 2,
+        discount: 0,
     },
 // more items...
 }
@@ -687,8 +678,8 @@ const getTotalPriceOfShoppingBag = (shoppingBag) => {
 }
 
 const shoppingBag = [
-    { product: 'Chocolate', quantity: 3 },
-    { product: 'Orange Juice', quantity: 23 },
+    {product: 'Chocolate', quantity: 3},
+    {product: 'Orange Juice', quantity: 23},
 ]
 
 const totalPrice = getTotalPriceOfShoppingBag(shoppingBag);
@@ -702,7 +693,7 @@ function getRandomNumberInRange(min, max) {
 
 const startGame = (heroPlayer, enemyPlayer) => {
     while (heroPlayer.health > 0 && enemyPlayer.health > 0) {
-        const randomNumber =  getRandomNumberInRange(0, 1);
+        const randomNumber = getRandomNumberInRange(0, 1);
         console.log(randomNumber)
 
         if (randomNumber === 0) {
@@ -739,8 +730,8 @@ startGame(hero, enemy);
 // Objects: Задание #7, Повторов: 1
 
 const getKiller = (suspectInfo, deadPeople) => {
-   const suspectArr = Object.values(suspectInfo);
-   console.log(suspectArr);
+    const suspectArr = Object.values(suspectInfo);
+    console.log(suspectArr);
 
     const killerIndex = suspectArr.findIndex(miniSuspectArr => deadPeople.every(deadMan => miniSuspectArr.includes(deadMan)));
 
@@ -748,7 +739,7 @@ const getKiller = (suspectInfo, deadPeople) => {
 
     const killer = suspectNames[killerIndex]
 
-   console.log(killer)
+    console.log(killer)
 }
 
 getKiller(
@@ -774,13 +765,14 @@ getKiller(
 function getRandomNumberInRange(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
-const getWinner = (applicants, winnerObject) => {
-   const applicantsArr = Object.keys(applicants);
 
-   const winnerNumber = applicantsArr[getRandomNumberInRange(0, applicantsArr.length - 1)];
+const getWinner = (applicants, winnerObject) => {
+    const applicantsArr = Object.keys(applicants);
+
+    const winnerNumber = applicantsArr[getRandomNumberInRange(0, applicantsArr.length - 1)];
     const winnerPerson = applicants[winnerNumber];
 
-    return  {
+    return {
         ...winnerObject,
         ...winnerPerson
     }
@@ -840,7 +832,7 @@ const getDaysBeforeBirthday = (nextBirthdayDate) => {
     return Math.round(convertMsToDays(nextBirthdayDate - today))
 }
 const myBirthDay = new Date(2023, 11, 11)
-getDaysBeforeBirthday (myBirthDay)
+getDaysBeforeBirthday(myBirthDay)
 
 
 // ==================================================================================================================================================
@@ -865,14 +857,14 @@ console.log(newDate)
 // Date: Задание #4, Повторов: 0
 
 const allowVisa = (arr) => {
-   return arr.filter(item => {
+    return arr.filter(item => {
         const date = item.passportExpiration.split('.')
         const day = date[0];
         const month = date[1] - 1;
         const year = date[2];
         console.log(new Date(year, month, day).getTime());
         console.log(new Date(Date.now()))
-       return new Date(year, month, day).getTime() > new Date(Date.now()) && !item.criminalRecord
+        return new Date(year, month, day).getTime() > new Date(Date.now()) && !item.criminalRecord
     })
 }
 
@@ -906,28 +898,27 @@ const result = allowVisa(peopleWithVisa);
 console.log('result', result);
 
 
-
 // ==================================================================================================================================================
 // Ключевое слово this: Задание #1, Повторов: 0
 
 const student = {
     stack: ['HTML'],
     level: 1,
-    improveLevel(){
+    improveLevel() {
         this.level++;
-        if(this.level === 2) {
+        if (this.level === 2) {
             this.stack.push('CSS')
         }
-        if(this.level === 3) {
+        if (this.level === 3) {
             this.stack.push('JavaScript')
         }
-        if(this.level === 4) {
+        if (this.level === 4) {
             this.stack.push('React')
         }
-        if(this.level === 3) {
+        if (this.level === 3) {
             this.stack.push('JavaScript')
         }
-        if(this.level > 5) {
+        if (this.level > 5) {
             console.log('Студент выучил все технологии!')
         }
         return this
@@ -961,7 +952,7 @@ const bird = {
     }
 }
 
-const makeDomestic = function (isDomestic){
+const makeDomestic = function (isDomestic) {
     console.log(`${this.type} по имени ${this.name} говорит ${this.makeSound()}`);
     this.isDomestic = isDomestic;
     return this
@@ -980,7 +971,7 @@ makeDomestic.apply(bird, [false])
 
 const footballer = {
     fullName: 'Cristiano Ronaldo',
-    attack(){
+    attack() {
         console.log(`${this.fullName} сейчас с мячом и начинает
 атаку!`);
     },
@@ -991,7 +982,7 @@ const footballer = {
     celebrate(sound) {
         console.log(sound);
     },
-    goToSubstitution: function(newPlayer) {
+    goToSubstitution: function (newPlayer) {
         console.log(`${this.fullName} уходит на замену.
 На поле выходит ${newPlayer}`);
     }
@@ -1001,13 +992,68 @@ const score = footballer.scoreGoal.call(footballer, 'СИИИИИИИИИИИИ�
 const substitute = footballer.goToSubstitution.apply(footballer, ['Paulo Dibala']);
 
 
-
 // ==================================================================================================================================================
 // Ключевое слово this: Задание #4, Повторов: 0
 
+const attacker = {
+    archer: 30,
+    footSoldier: 55,
+    cavalry: 10,
+    artillery: 3,
+
+    checkChancesToWin(defenderObject) {
+        let chances = 0;
+        if (defenderObject.archer < this.archer) {
+            chances++
+        }
+        if (defenderObject.footSoldier < this.footSoldier) {
+            chances++
+        }
+        if (defenderObject.cavalry < this.cavalry) {
+            chances++
+        }
+        if (defenderObject.artillery < this.artillery) {
+            chances++
+        }
+
+        let arr = [];
+        arr.push(chances);
+        arr.push(Object.keys(defenderObject).length);
+        console.log(arr)
+        return arr
+    },
+
+    improveArmy() {
+        this.archer = this.archer + 5;
+        this.footSoldier = this.footSoldier + 5;
+        this.cavalry = this.cavalry + 5;
+        this.artillery = this.artillery + 5;
+    },
+
+    attack(defenderObject) {
+        let checkChances = this.checkChancesToWin(defenderObject)[0] / this.checkChancesToWin(defenderObject)[1] * 100;
+        console.log(checkChances)
+        if (checkChances < 70) {
+            this.improveArmy();
+            console.log(attacker)
+            console.log(`Наши шансы равны ${checkChances}%. Необходимо укрепление!`)
+        } else {
+            console.log(` “Мы усилились! Мы несомненно победим! Наши шансы высоки!”`)
+        }
+    }
+}
+
+const defender = {
+    archer: 33,
+    footSoldier: 50,
+    cavalry: 40,
+    artillery: 10,
+}
 
 
-
+attacker.attack(defender); // Наши шансы равны 1/4. Необходимо укрепление!
+attacker.attack(defender); // Наши шансы равны 2/4. Необходимо укрепление!
+attacker.attack(defender); // Мы усилились! Мы несомненно победим! Наши шансы высоки
 
 
 
