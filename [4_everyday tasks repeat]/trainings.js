@@ -1003,18 +1003,15 @@ const attacker = {
 
     checkChancesToWin(defenderObject) {
         let chances = 0;
-        if (defenderObject.archer < this.archer) {
-            chances++
-        }
-        if (defenderObject.footSoldier < this.footSoldier) {
-            chances++
-        }
-        if (defenderObject.cavalry < this.cavalry) {
-            chances++
-        }
-        if (defenderObject.artillery < this.artillery) {
-            chances++
-        }
+
+        const defenderArmy = Object.values(defenderObject);
+        const attackerArmy = Object.values(this)
+
+        defenderArmy.forEach((value,index) => {
+            if (value < attackerArmy[index] && typeof attackerArmy[index] === 'number') {
+                chances++
+            }
+        })
 
         let arr = [];
         arr.push(chances);
@@ -1024,10 +1021,15 @@ const attacker = {
     },
 
     improveArmy() {
-        this.archer = this.archer + 5;
-        this.footSoldier = this.footSoldier + 5;
-        this.cavalry = this.cavalry + 5;
-        this.artillery = this.artillery + 5;
+        const attackerArmy = Object.entries(this);
+        attackerArmy.forEach(item => {
+            const key = item[0];
+            const values = item[1];
+
+            if (typeof values === 'number') {
+                this[key] = values + 5
+            }
+        })
     },
 
     attack(defenderObject) {
