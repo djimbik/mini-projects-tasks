@@ -89,7 +89,7 @@ const taskModel = new TaskModel([
     },
     {
         id: Date.now() + 15,
-        title: `Ключевое слово this: Задание #4, Повторов: 1`,
+        title: `Ключевое слово this: Задание #4, Повторов: 2`,
         isDone: true,
     },
     {
